@@ -1,5 +1,9 @@
 InfluenceMarket::Application.routes.draw do
 
+  match "users/top"=>'users#index',as: :users
+  match 'users/:screen_name/followers' => 'users#followers' ,as: :followers
+  match 'users/refresh' => 'users#refresh',as: :refresh_users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
   resources :search do 

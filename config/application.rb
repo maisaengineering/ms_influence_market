@@ -58,5 +58,9 @@ module InfluenceMarket
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    ENV['CONSUMER_KEY'] = 'Vzc7fXfWulpew2LqKX03dA'
+    ENV['CONSUMER_SECRET'] = 'TP4egwk0r6sY0TjFXTYRRnYRdM2BXWKmR0c8tTSik'
+    ENV['ACCESS_TOKEN'] = '1285037138-Sqjut7lTMTxw9sLRLRWVN9XAbCCCi46bLzScRRB'
+    ENV['ACCESS_TOKEN_SECRET'] = 'j77G945gd9fOOZ2zoZNElpUL7MkxOD6dgskxDJfzBnzya'
   end
 end

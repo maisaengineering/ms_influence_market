@@ -1,5 +1,4 @@
-#root = "/home/maisapride/workspace/influence_market/"
-root = Rails.root
+root = "/home/maisapride/workspace/influence_market/"
 working_directory root
 pid "#{root}/tmp/pids/unicorn.pid"
 stderr_path "#{root}/log/unicorn.log"

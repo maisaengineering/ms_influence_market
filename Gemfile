@@ -24,6 +24,10 @@ gem 'jquery-rails'
 
 gem 'unicorn'
 
+gem 'nokogiri'
+gem 'twittercounter'
+gem 'twitter'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

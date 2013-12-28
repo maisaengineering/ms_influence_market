@@ -1,0 +1,19 @@
+<table>
+  <th>Name</th>
+  <th>Screen Name</th>
+  <th>Twitter Id</th>
+  <th>Followers Count</th>
+  <th></th>
+  <% unless @users.blank? %>
+      <% @users.each do |user| %>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.screen_name %></td>
+            <td><%= user.twitter_id %></td>
+            <td><%=  user.followers_count  %></td>
+            <td><%= link_to 'Followers' ,followers_path(user.screen_name) %></td>
+          </tr>
+      <% end  %>
+  <% end %>
+
+</table>

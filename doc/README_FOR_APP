@@ -17,4 +17,4 @@ Run "rake doc:app" to generate API documentation for your models, controllers, h
  +Stop: unicorn
  +---------------
  +
- +kill -9 `cat /home/maisapride/workspace/RubymineWorkspace/influence_market/tmp/pids/unicorn.pid`
+ +kill -9 `cat /home/maisapride/workspace/influence_market/tmp/pids/unicorn.pid`

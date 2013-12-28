@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131005154729) do
+ActiveRecord::Schema.define(:version => 20131228112429) do
+
+  create_table "followables", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "follower_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "item_prices", :force => true do |t|
     t.integer  "item_id"
@@ -39,5 +46,17 @@ ActiveRecord::Schema.define(:version => 20131005154729) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "users", :force => true do |t|
+    t.string   "twitter_id"
+    t.string   "screen_name"
+    t.string   "name"
+    t.integer  "followers_count"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "users", ["screen_name"], :name => "index_users_on_screen_name", :unique => true
+  add_index "users", ["twitter_id"], :name => "index_users_on_twitter_id", :unique => true
 
 end

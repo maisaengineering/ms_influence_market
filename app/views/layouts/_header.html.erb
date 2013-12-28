@@ -33,7 +33,9 @@
             </li>
             <li><%= link_to "Sign out",session_path(1), :class => "signout", :method => :delete %></li>
             <li><a href="#" class="acc_settings">Account settings</a></li>
-        </ul>  
+            <li><%= link_to 'Top Users' ,users_path %></li>
+            <li><%= link_to 'Refresh' ,refresh_users_path %></li>
+        </ul>
         <div class="clearfix"></div>   
     </div>
     <% end %>
