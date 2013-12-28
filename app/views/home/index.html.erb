@@ -4,9 +4,9 @@
     <section class="search_section">
         <%= form_tag search_result_search_index_path, :remote => :true do %>
             <div id="search_form">
-                <%= text_field_tag :item_id,"Search By Item-Id:", :onblur => "if(this.value==''){this.value='Search By Item-Id:'}", :onclick => "if(this.value=='Search By Item-Id:'){this.value=''}"%>
+              <%= text_field_tag :item_id ,'',placeholder: 'Search By Item-Id:' %>
                 <span class="or_bg"></span>
-                <%= text_field_tag :item_name,"Search By Item-name", :onblur => "if(this.value==''){this.value='Search By Item-name'}", :onclick =>"if(this.value=='Search By Item-name'){this.value=''}"  %>
+              <%= text_field_tag :item_name,'',placeholder: 'Search By Item-name:'  %>
                 <%= submit_tag "Search" %>
             </div>         
         <% end %>

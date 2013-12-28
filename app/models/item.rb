@@ -36,6 +36,17 @@ class Item < ActiveRecord::Base
 	################
 	
 	class << self
+    def search(params)
+      if params[:item_id].present? and params[:item_name].present?
+        where('id =? OR name LIKE ?' , params[:item_id],"%#{params[:item_name]}%")
+      elsif params[:item_id].present?
+        where(id: params[:item_id])
+      elsif params[:item_name].present?
+        where('name LIKE ?' , "%#{params[:item_name]}%" )
+      else
+        scoped
+      end
+    end
 	end
 	################
 	##PUBLIC METHODS
