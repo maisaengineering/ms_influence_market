@@ -7,13 +7,15 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<!-- stylesheet -->
-		<%= stylesheet_link_tag   "style", "responsive" %>
-	  
+		<%#= stylesheet_link_tag   "style", "responsive" %>
+		<%= stylesheet_link_tag   "application" %>
+
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->	
-		<%= javascript_include_tag "jquery","html5","tinynav.min","tinynav" %>
+		<%#= javascript_include_tag "jquery","html5","tinynav.min","tinynav" %>
+		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
 		<!-- for tiny nav -->
 		<%= render :partial => "layouts/application_scripts" %>
@@ -35,6 +37,6 @@
 	   		<%= render :partial => "layouts/footer" %>
 			<!-- footer ends -->
 			<!-- for modal view -->
-		<%= javascript_include_tag "jquery.simplemodal","basic" %>
+		<%#= javascript_include_tag "jquery.simplemodal","basic" %>
 	</body>
 </html>

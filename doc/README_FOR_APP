@@ -1,2 +1,20 @@
 Use this README file to introduce your application and point to useful places in the API for learning more.
 Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+
++ bundle exec rake assets:precompile RAILS_ENV=production
+ +
+ +
+ +Nginx
+ +-- restart
+ +  sudo service nginx restart
+ +--- reload
+ +  sudo service nginx reload
+ +
+ +Start Unicorn
+ +-----------
+ +bundle exec unicorn -c config/unicorn.rb -E production -D -p 8080
+ +
+ +Stop: unicorn
+ +---------------
+ +
+ +kill -9 `cat /home/maisapride/workspace/RubymineWorkspace/influence_market/tmp/pids/unicorn.pid`

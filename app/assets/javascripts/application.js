@@ -12,4 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require html5
+//= require tinynav
+//= require jquery.simplemodal
+//= require basic
+
