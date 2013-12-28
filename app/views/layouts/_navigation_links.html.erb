@@ -1,0 +1,47 @@
+<!-- navigation starts -->
+<nav>
+  <div  class="bg_nav_res" style="width: 102%;">
+    <ul id="nav">
+	<li class="search">
+		<%= link_to "Search", root_url, :class => "#{(params[:controller] == "home" && params[:action] == "index") ? 'active' : '' }" %>
+	</li>
+	<li class="trade">
+		<%= link_to "Trade", trades_path, :class => "#{(params[:controller] == "trades" && params[:action] == "index") ? 'active' : '' }" %>
+	</li>
+	<li class="performance">
+		<%= link_to "Performances", performances_path, :class => "#{(params[:controller] == "performances" && params[:action] == "index") ? 'active' : '' }" %>
+	</li>
+	<li class="research">
+		<%= link_to "Researchs", researchs_path, :class => "#{(params[:controller] == "researchs" && params[:action] == "index") ? 'active' : '' }" %>
+	</li>
+	<li class="notifications" style="position:relative;">
+        	<a href="#">Notifications</a>
+            <!-- show hide portion -->
+            <div class="msg_cont">                    	
+              <div onclick="showHide('hidden_div'); return false;" class="icon">3</div>
+              <div id="hidden_div" style="display: none;">
+                <span class="arrow"></span>
+                <div class="show_hide_box">
+                    <!-- repeating div starts -->
+                    <div class="rpt_row">
+                        <h3>Message:</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    </div>
+                    <!-- repeating div ends -->
+                    
+                    <!-- repeating div starts -->
+                    <div class="rpt_row">
+                        <h3>Message:</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                    </div>
+                    <!-- repeating div ends -->
+                 </div>
+              </div>
+            </div>
+            <!-- show hide portion -->
+        </li>
+    </ul>
+    <div class="clearfix"></div>
+   </div> 
+</nav>
+<!-- navigation ends -->

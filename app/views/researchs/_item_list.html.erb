@@ -1,0 +1,7 @@
+<tr>
+<%  item = item_list.item %>
+    <td><%= item.id %></td>
+    <td><%= item.name %></td>
+    <td><%= item_list.tarde_type == "buy" ?  "$#{item_list.price}" : "" %></td>
+     <td><%= item_list.tarde_type == "sell" ? "$#{item_list.price}" : "" %></td>	
+</tr> 

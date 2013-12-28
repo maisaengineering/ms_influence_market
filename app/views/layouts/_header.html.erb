@@ -1,0 +1,41 @@
+<header>
+   <!-- logo starts -->
+    <a href="index.html" class="logo">Influence Market</a>
+   <!-- logo ends --> 
+   <!-- top link bar starts -->
+   <% if session[:user].present? %>
+    <div class="top_link">
+        <ul>
+        	<li style="position:relative;">
+            	<!-- show hide portion for responsive version starts -->
+                <div class="msg_cont responsive_notify">                    	
+                  <div onclick="showHide_responsive('hidden_div_responsive'); return false;" class="icon">3</div>
+                  <div id="hidden_div_responsive" style="display: none;">
+                    <span class="arrow"></span>
+                    <div class="show_hide_box">
+                        <!-- repeating div starts -->
+                        <div class="rpt_row">
+                            <h3>Message:</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                        </div>
+                        <!-- repeating div ends -->
+                        
+                        <!-- repeating div starts -->
+                        <div class="rpt_row">
+                            <h3>Message:</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                        </div>
+                        <!-- repeating div ends -->
+                     </div>
+                  </div>
+                </div>
+         		<!-- show hide portion for responsive version ends -->
+            </li>
+            <li><%= link_to "Sign out",session_path(1), :class => "signout", :method => :delete %></li>
+            <li><a href="#" class="acc_settings">Account settings</a></li>
+        </ul>  
+        <div class="clearfix"></div>   
+    </div>
+    <% end %>
+   <!-- top link bar ends -->   
+</header>

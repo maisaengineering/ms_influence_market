@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  item_id: 1
+  date: 2013-10-05
+  price: 1.5
+  rear_window_item_ids: MyString
+  front_window_item_ids: MyString
+
+two:
+  item_id: 1
+  date: 2013-10-05
+  price: 1.5
+  rear_window_item_ids: MyString
+  front_window_item_ids: MyString

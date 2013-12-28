@@ -1,0 +1,61 @@
+<!-- body container starts -->
+<article>
+	<!-- search area starts -->
+	<section class="search_cont">
+        	<div class="search_cont_l"><span class="bold_text">Current Search:</span> SearchTerm.......</div>
+            <div class="search_cont_r">
+            	<input type="search" name="search" value="Search by Item ID or Name" onblur="if(this.value==''){this.value='Search by Item ID or Name'}" onclick="if(this.value=='Search by Item ID or Name'){this.value=''}"> 
+                <input type="submit" name="search_button" value="Search Again">
+            </div>
+            <div class="clearfix"></div> 
+    </section>
+    <!-- search area ends -->
+    
+    <!-- search result starts -->
+    <section class="search_result">
+        
+         <!-- search result table -->
+         <table id="tab_view">
+            <thead>
+            <tr>
+                <th width="100">Item-Id</th>
+                <th>Item Name</th>
+                <th>Current Quote</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            		<%= render :partial => "result", :collection => @result %>
+            </tbody>
+        </table>
+ 	<!-- search result table -->
+         <% if @result.count == 4 %>
+         <!-- pagination starts -->
+         <div class="pagination">
+         	<ul>
+            	<li><a href="#">&laquo;</a></li>
+            	<li><a href="#" class="active">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a href="#">7</a></li>
+                <li><a href="#">8</a></li>
+                <li><a href="#">9</a></li>
+                <li><a href="#">10</a></li>
+                <li><a href="#">11</a></li>
+                <li><a href="#">12</a></li>
+                <li><a href="#">13</a></li>
+                <li><a href="#">14</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+            <div class="clearfix"></div>
+         </div>
+         <!-- pagination ends --> 
+          <% end %>
+    </section>
+    <!-- search result ends -->
+    
+</article>
+<!-- body container ends -->

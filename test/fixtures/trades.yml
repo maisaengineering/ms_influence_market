@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  item_id: 1
+  tarde_type: MyString
+  date: 2013-10-05
+  order_type: MyString
+  price: 1.5
+
+two:
+  item_id: 1
+  tarde_type: MyString
+  date: 2013-10-05
+  order_type: MyString
+  price: 1.5

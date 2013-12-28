@@ -1,0 +1,55 @@
+<script type="text/javascript">
+			$(function () {
+			  // TinyNav.js 1
+			  $('#nav').tinyNav({
+			    active: 'selected',
+			    //label: 'Menu'  
+			  });
+
+			});
+	      </script>  
+	      <script type="text/javascript"> 
+			function show( id ) { 
+				document.getElementById(id).style.display = 'block'; 
+			} 
+			function hide( id ) { 
+				document.getElementById(id).style.display = 'none'; 
+			} 
+		</script>  
+	        
+		<!-- for quote hide show -->
+		<script type="text/javascript"> 
+			$(document).ready(function() {
+				$('#quote_option').change(function(){
+					var quote = $(this).val(),
+					div = $('#' + quote);
+					$('div.quote').hide();
+					div.show();
+				});
+			});	
+		</script>   
+	        
+		<!-- notification -->
+		<script type="text/javascript">
+			function showHide(obj) {
+				var div = document.getElementById(obj);
+				if (div.style.display == 'none') {
+				div.style.display = '';
+			} else {
+				div.style.display = 'none';
+				}
+			}
+		</script>
+	        
+		<!-- notification responsive -->
+		<script type="text/javascript">
+			function showHide_responsive(obj) {
+			   var div = document.getElementById(obj);
+			   if (div.style.display == 'none') {
+				 div.style.display = '';
+			   }
+			   else {
+				 div.style.display = 'none';
+			   }
+			 }
+		</script>

@@ -1,0 +1,173 @@
+<% content_for :head_javascripts do %>
+  	<%= javascript_include_tag "ddaccordion" %>
+	<script type="text/javascript">
+	    ddaccordion.init({
+	    headerclass: "expandable", //Shared CSS class name of headers group that are expandable
+	    contentclass: "categoryitems", //Shared CSS class name of contents group
+	    revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+	    mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+	    collapseprev: true, //Collapse previous content (so only one open at any time)? true/false
+	    defaultexpanded: [-1], //index of content(s) open by default [index1, index2, etc]. [] denotes no content
+	    onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+	    animatedefault: false, //Should contents open by default be animated into view?
+	    persiststate: true, //persist state of opened contents within browser session?
+	    toggleclass: ["", "openheader"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+	    togglehtml: ["prefix", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+	    animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+	    oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
+	        //do nothing
+	    },
+	    onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+	        //do nothing
+	    }
+	})
+	</script>
+<% end %>
+<!-- body container starts -->
+<article>
+
+    <!-- research section starts -->
+    <section class="research_cont">
+    	<h2>Research</h2>
+    	<div class="arrowlistmenu">
+          <ul>
+                <li><a href="about_details.html" class="listing menuheader expandable">Your Activity</a></li>
+                	<div class="sublisting categoryitems">
+				<!-- research table -->
+                       <table id="tab_view_accordion">
+                            <thead>
+                                	<tr>
+                                        <th width="100">Item-Id</th>
+                                        <th>Item-Name</th>
+                                        <th>Buy</th>
+                                        <th>Sale</th>
+                                  </tr>
+                            </thead>
+                            <tbody>
+                                  <%= render :partial => "item_list", :collection => @your_activity %> 
+                          	</tbody>
+                      	</table>
+               		<!-- research table -->
+			</div>
+                 <li><a href="about_details.html" class="listing menuheader expandable">Top 10 items</a></li>
+                 <div class="sublisting categoryitems">
+          			<!-- research table -->
+                       <table id="tab_view_accordion">
+                            <thead>
+                              	<tr>
+	                                  <th width="100">Item-Id</th>
+	                                  <th>Item-Name</th>
+	                                  <th>Buy</th>
+	                                  <th>Sale</th>
+						</tr>
+                            </thead>
+                            <tbody>
+                                  <%= render :partial => "item_list", :collection => @top_ten_items %>
+                            </tbody>
+                      	</table>
+                      <!-- research table -->
+                	</div>  
+                	<li>
+                		<a href="feature_presentation.html" class="listing menuheader expandable">Top 10 trending items</a></li> 
+         			<div class="sublisting categoryitems">   
+                		<!-- research table -->
+                             <table id="tab_view_accordion">
+                                    <thead>
+                                    <tr>
+                                        <th width="100">Item-Id</th>
+                                        <th>Item-Name</th>
+                                        <th>Buy</th>
+                                        <th>Sale</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%= render :partial => "item_list", :collection => @top_ten_trending_items %>
+                                    </tbody>
+                                </table>
+                        <!-- research table -->
+                 		</div>
+                <li><a href="parody_contest.html" class="listing menuheader expandable">Highest volume items</a></li>
+                	<div class="sublisting categoryitems">    
+                		<!-- research table -->
+                             <table id="tab_view_accordion">
+                                    <thead>
+                                    <tr>
+                                        <th width="100">Item-Id</th>
+                                        <th>Item-Name</th>
+                                        <th>Buy</th>
+                                        <th>Sale</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%= render :partial => "item_list", :collection => @highest_volume %>  
+                                    </tbody>
+                                </table>
+                        <!-- research table -->
+			</div>                        
+                <li><a href="menu.html" class="listing menuheader expandable">Highest price increase/decrease items</a></li> 
+                		<div class="sublisting categoryitems">
+                		<!-- research table -->
+                             <table id="tab_view_accordion">
+                                    <thead>
+                                    <tr>
+                                        <th width="100">Item-Id</th>
+                                        <th>Item-Name</th>
+                                        <th>Buy</th>
+                                        <th>Sale</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                       <%= render :partial => "item_list", :collection => @highest_price_both %>  
+                                    </tbody>
+                                </table>
+                        <!-- research table -->
+                        </div>
+                <li><a href="#" class="listing menuheader expandable">Front/Rear View Mirror</a></li>
+                	<div class="sublisting categoryitems">
+                    <!-- rear/front view table -->
+                    <div class="rear">
+                    	<h3 class="green_head">Rear View Mirror</h3>
+                        <div class="tab_rear_bg">
+                    	<table cellpadding="0" cellspacing="0" width="100%" id="tab_view_rearfront">
+                         <thead>
+                        	<tr>
+                                <%= render :partial => "item_head", :collection => @rear_window %>	
+                      	                                         
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                            	
+                                <%= render :partial => "item_price", :collection => @rear_window %>  
+                            	
+                            </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <h3 class="green_head">Front View Mirror</h3>
+                        <div class="tab_rear_bg">
+                        <table cellpadding="0" cellspacing="0" width="100%" id="tab_view_rearfront">
+                         <thead>
+                        	<tr>	
+                            	<%= render :partial => "item_head", :collection => @front_window %>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                            	
+                            	<%= render :partial => "item_price", :collection => @front_window %>
+                              
+                            </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>         
+                    <!-- rear/front view table -->
+               		</div>
+              </ul>
+       </div> 
+    </section>
+    <!-- research section ends -->
+    
+</article>
+<!-- body container ends -->

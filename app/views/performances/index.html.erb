@@ -1,0 +1,48 @@
+<!-- body container starts -->
+<article>
+	
+    
+	<!-- performance starts -->
+	<section class="performance_cont">
+	    
+	     <!-- performance table -->
+	     <table id="tab_view_performance">
+			<thead>
+				<tr>
+				    <th width="10%">Item-Id</th>
+				    <th width="15%">Price Bought</th>
+				    <th width="18%">Current Price</th>
+				    <th width="18%">Gain</th>
+				    <th>%</th>
+				    <th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <%= render :partial => "gain_list", :collection => @trade_items %>
+			</tbody>
+		</table>
+
+	     <table id="tab_view_performance">
+			<thead>
+				<tr>
+				    <th width="10%">Item-Id</th>
+				    <th width="15%">Price Bought</th>
+				    <th width="18%">Current Price</th>
+				    <th width="18%">Loss</th>
+				    <th>%</th>
+				    <th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <%= render :partial => "loss_list", :collection => @trade_items %>
+			</tbody>
+		</table>
+	<!-- performance table -->
+         
+       
+          
+    </section>
+    <!-- search result ends -->
+    
+</article>
+<!-- body container ends -->

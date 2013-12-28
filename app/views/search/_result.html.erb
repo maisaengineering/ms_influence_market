@@ -1,0 +1,53 @@
+<% result_counter += 1 %>
+<tr class="<%= result_counter %>">
+    <td class="show_arrow"><a href="#" onclick="showHide('hidden_div<%= result_counter %>'); return false;">Show</a><%= result.id %></td>
+    <td><%= result.name %></td>
+    <td>$<%= result.current_price %></td>
+     <td>
+  	<select>
+		<option>Buy</option>
+        	<option>Sale</option>
+    </select>
+  </td>	
+</tr>
+<tr id="hidden_div<%= result_counter %>" class="hide_show" style="display: none;">
+    <td colspan="4">
+        <div class="table_row_show">
+            <ul class="col_first">
+                <li>Item price: <strong>$97.33</strong></li>
+                <li>Last quote: <strong>$58.33</strong></li>
+            </ul>  
+            <div class="col_second"> 
+                <img src="images/image1.png" alt="" class="img_chart" />
+                <div class="view_left">
+                    View: <a href="#">1d.</a> <a href="#">1m.</a> <a href="#">1y.</a> <a href="#">All.</a> 
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <ul class="col_third">
+                <li>All time high: <strong>$101.57</strong></li>
+                <li>All time low: <strong>$97.30</strong></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </td>
+</tr>  
+<% content_for :head_javascripts do %>
+ <script type="text/javascript">
+	 function showHide<%= result_counter %>(obj) {
+	   var tr = document.getElementById(obj);
+	   if (tr.style.display == 'none') {
+		 tr.style.display = '';
+	   }
+	   else {
+		 tr.style.display = 'none';
+	   }
+	 }
+	$(document).ready(function(){
+	  $("tr.<%= result_counter %> td.show_arrow a").click(function(){
+	    $("tr.<%= result_counter %> td.show_arrow a").toggleClass("selected");
+	  });
+	});
+</script>
+<% end %>

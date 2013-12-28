@@ -1,0 +1,18 @@
+<% content_for :head_javascripts do %>
+  <!-- Any code for javascripts-->
+<% end %>
+<article>	    
+    <!-- login starts -->
+    <section class="login_section">
+	    	<div id="login_cont">
+			<h2 class="login_title">Member Login</h2>
+			<div id="login_form">
+			    <form id="form_login" action="/sessions" method="post">
+			        <%= render :partial => "form" %>
+			        <input type="submit" value="Sign in" name="button_login">  
+			    </form> 
+			</div> 
+		</div>
+    </section>
+    <!-- login ends -->            
+</article>

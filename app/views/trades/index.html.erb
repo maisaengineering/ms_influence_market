@@ -1,0 +1,79 @@
+<!-- body container starts -->
+<article>
+    <!-- trade section starts -->
+    <section class="trade_section">
+        <%= form_for @trade, :url => trades_path do |f| %>
+            <div id="trade_form">
+                <div class="row_form">
+                    <% if flash.present? %>
+                        <% flash.each do |name, msg| %>
+                        <div id="msg" class="<%= name.to_s == "alert" ? "decline_alert" : "confirmation_alert" %>">
+                            <p> <%= msg %></p>
+                        <% end %>
+                        <a class="cross" onclick="show('none'); hide('msg')" href="#">Close</a>
+                        <div class="clearfix"></div>
+                        </div>
+                        <div id="none"></div>
+                    <% end %>
+                </div>
+                <div class="row_form">
+                    <label>Buy/Sell</label>
+                    <%= f.select :tarde_type, ["Buy", "Sell"].collect {|u| [u,u.downcase]} %>
+                    <div class="clearfix"></div>
+                </div> 
+                <div class="row_form">
+                    <label>Item-Id</label>
+                    <%= f.select :item_id, Item.all.collect {|u| [u.name,u.id]} , {:prompt => 'Select Item'}, :onchange => "getCurrentprice();" %>
+                    <div class="clearfix"></div>
+                </div> 
+                <div class="row_form">
+                    <label>Current Quote</label>
+                    <label class="grey_text" id="get_current_price"></label>
+                    <div class="clearfix"></div>
+                </div> 
+                <div class="row_form">
+                    <label>Order Type</label>
+                    <%= f.select :order_type, ["Quote", "Market"].collect {|u| [u,u.downcase]} %>
+                <div class="clearfix"></div>
+            </div> 
+            <div class="row_form quote" id="quote">
+        	   <label>Enter Your Quote</label>
+               <%= f.text_field :price %>
+               <%= f.hidden_field :date, :value => Time.now.to_date %>
+        	   <div class="clearfix"></div>
+            </div> 
+            <div id="market" class="market" style="display:block"></div>
+            <div class="row_form" id='basic-modal'>
+                <div class="button_row">
+                    <input type="submit" value="Submit" class='basic' onclick="get_info();"> 
+                    <input type="button" value="Cancel" class="red_button">
+                </div>
+                <div class="clearfix"></div>
+                <div id="basic-modal-content">
+                    
+                </div> 
+            </div> 
+            </div>   
+        <% end %>
+    </section>
+    <!-- trade section ends -->    
+</article>
+<!-- body container ends -->
+<script type="text/javascript">
+    function getCurrentprice(){
+        var id = $('#trade_item_id').val()
+        $.ajax({
+            type: 'get',
+            url: "/trades/" + id + "/get_current_price",
+            dataType : "html",
+            success : function(data) {
+                $('#get_current_price').html(data);
+            }
+        });
+    }
+
+    function get_info(){
+        html = "<h2>Please Confirm </h2><div class=\"placeholder_confirm\"><div class=\"modal_row\"><label>Buy/Sell  </label>:" + $('#trade_tarde_type').val() + "<div class=\"clearfix\"></div></div><div class=\"modal_row\"><label>Item-Id </label>: " + $('#trade_item_id').val() + "<div class=\"clearfix\"></div></div><div class=\"modal_row\"><label>Current Quote  </label>: " + $('#get_current_price').html() + "<div class=\"clearfix\"></div></div><div class=\"modal_row\"><label>Order Type   </label>: " + $('#trade_order_type').val() + "<div class=\"clearfix\"></div></div><div class=\"modal_row\"><label>Enter Your Quote  </label>: $"+ $('#trade_price').val() +"<div class=\"clearfix\"></div></div><div class=\"button_row\"><input type=\"submit\" value=\"Confirm\" class=\"simplemodal-close\" onclick=\"$('#new_trade').submit();\"><a href=\"#\" class=\"modalCloseImg simplemodal-close\" title=\"close\">Cancel</a></div></div>"
+        $('#basic-modal-content').html(html)
+    }
+</script>
