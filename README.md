@@ -104,7 +104,7 @@ automatically, and it will not work. After that, start unicorn:
 
     cd ~/influence_market
     rake assets:precompile RAILS_ENV=production
-    bundle exec unicorn -c config/unicorn.rb -E development -D -p 8080
+    bundle exec unicorn -c config/unicorn.rb -E production -D -p 8080
     sudo service nginx restart
 
 The method to stop a unicorn process:
