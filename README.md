@@ -1,4 +1,3 @@
-
 ### Install Nginx if not
 
     sudo apt-get install python-software-properties
@@ -19,6 +18,8 @@ Launch Nginx to check if it was installed correctly:
 Then start your browser, type your server IP to the address bar, enter. If you
 can see the Ngnix default page, `Welcome to Nginx!`, it proves that your Nginx
 works well.
+
+Note: the default port is 80 ,so stop apache if its already running
 
 Note: you should modify the lines in the file `/etc/nginx/site-enabled/default` from:
 
@@ -110,6 +111,7 @@ The method to stop a unicorn process:
 
     kill -9 `cat ~/influence_market/tmp/pids/unicorn.pid`
 
-Now reload your server page, the home page occurs, and the dynamic data can
-be seen.
+Now reload your server page, the home page will appears
+http://youripaddress/
+
 
