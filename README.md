@@ -111,7 +111,7 @@ The method to stop a unicorn process:
 
     kill -9 `cat ~/influence_market/tmp/pids/unicorn.pid`
 
-Now reload your server page, the home page will appears
-http://youripaddress/
+Now reload your server page(http://youripaddress/), the home page will appears
+
 
 
